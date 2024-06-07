@@ -1,0 +1,62 @@
+---
+import DeveloperCard from "./DeveloperCard.astro";
+import SectionWrapper from "./SectionWrapper.astro";
+---
+
+<SectionWrapper>
+  <h1>About Us</h1>
+  <div class="developer-cards">
+    <DeveloperCard 
+      name="Jorge Cimadevilla" 
+      github="https://github.com/lamoara" 
+      linkedin="https://www.linkedin.com/in/jorge-cimadevilla-aniz-85a536272"
+      description="Developer with a passion for machine learning, computer vision and Rust."
+      image="https://avatars.githubusercontent.com/u/109004232?v=4"
+    />
+    <DeveloperCard 
+      name="Marcelo Domínguez" 
+      github="https://github.com/sa4dus" 
+      linkedin="https://www.linkedin.com/in/marcelo-atanasio-dom%C3%ADnguez-mateo-b0b282203"
+      description="Developer focusing on neural networks and its mathematical foundation."
+      image="https://avatars.githubusercontent.com/u/69964857?v=4"
+    />
+  </div>
+</SectionWrapper>
+
+<style>
+  .intro {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .developer-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    animation: slideInFromBottomFadeIn 1s;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('.developer-cards');
+  
+  const observerOptions = {
+    threshold: 0.5
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+  
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+  </script>

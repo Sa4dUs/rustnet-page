@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlurredBackground from '../components/BlurredBackground.astro';
+import LandingSection from '../components/LandingSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+---
+
+<Layout title="Welcome to Rustnet.">
+	<main class="snap-container">
+		<LandingSection/>
+		<FeaturesSection/>
+		<AboutSection/>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: 0;
+		padding: 0;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+		height: 100vh;
+		overflow-y: auto;
+		scroll-snap-type: y mandatory;
+	}
+</style>

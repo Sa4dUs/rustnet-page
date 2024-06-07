@@ -1,0 +1,148 @@
+---
+import SectionWrapper from "./SectionWrapper.astro";
+import RustFerris from "./RustFerris.astro";
+---
+
+<SectionWrapper>
+	<h1>Features</h1>
+	<div class="features-content">
+		<div class="ferris-container">
+			<RustFerris class="ferris-icon" />
+		</div>
+		<div class="features-lists">
+			<div class="features-list">
+				<h2 class="text-gradient-reversed">Implemented Features</h2>
+				<ul>
+					<li>Basic Neural Network Implementation</li>
+					<li>Data Preprocessing Tools</li>
+					<li>Model Evaluation Metrics</li>
+					<li>Network serialization</li>
+				</ul>
+			</div>
+			<div class="features-list upcoming-list">
+				<h2 class="text-gradient-reversed">Upcoming Features</h2>
+				<ul class="upcoming">
+					<li>Advanced Neural Network Architectures</li>
+					<li>GPU Acceleration</li>
+					<li>Distributed Training</li>
+					<li>Python integration</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</SectionWrapper>
+
+<style>
+	.features-content {
+		position: relative;
+		padding: 0 1rem;
+	}
+
+	.ferris-container {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 400px;
+		transform: translate(-50%, -50%);
+		animation: goBack 0.5s ease forwards;
+	}
+
+	.ferris-container:hover {
+		animation: wiggle 1s ease forwards;
+	}
+
+	@keyframes goBack {
+		from {
+			transform: translate(-66%, -50%);
+			scale: 1.1;
+		}
+		to {
+			scale: 1;
+		}
+	}
+
+	@keyframes wiggle {
+		0% {
+			scale: 1;
+		}
+
+		100% {
+			transform: translate(-66%, -50%);
+			scale: 1.1;
+		}
+	}
+
+	.features-lists {
+		display: flex;
+		flex-direction: row;
+		gap: 2rem;
+		justify-content: center;
+		align-items: flex-start;
+		z-index: 2;
+		margin: 0 auto;
+		max-width: 800px;
+		padding: 2rem;
+		height: 100%;
+	}
+
+	.features-list {
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		padding: 1rem;
+		border-radius: 8px;
+		max-width: 300px;
+		flex: 1;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		backdrop-filter: blur(5rem);
+		flex-grow: 1;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+	}
+
+	.features-list:hover {
+		transform: scale(1.05);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	.features-list h2 {
+		font-size: 1.5rem;
+		color: rgb(var(--accent));
+		margin-bottom: 0.5rem;
+		text-align: center;
+	}
+
+	.features-list ul {
+		list-style: none;
+		padding: 0;
+		flex: 1;
+	}
+
+	.features-list li {
+		margin-bottom: 0.5rem;
+		padding-left: 1.5rem;
+		position: relative;
+	}
+
+	.features-list li::before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: rgb(var(--accent-light));
+	}
+
+	.upcoming-list li::before {
+		content: "•" !important;
+	}
+
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+</style>

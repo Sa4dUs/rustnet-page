@@ -1,0 +1,111 @@
+<astro-fragment>
+    <div class="background">
+      <div class="spot spot1"></div>
+      <div class="spot spot2"></div>
+      <div class="spot spot3"></div>
+    </div>
+  
+    <style>
+      @keyframes spotMovement1 {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(30px, 20px);
+        }
+        50% {
+          transform: translate(60px, 40px);
+        }
+        75% {
+          transform: translate(30px, 60px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+  
+      @keyframes spotMovement2 {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(-20px, 30px);
+        }
+        50% {
+          transform: translate(-40px, 60px);
+        }
+        75% {
+          transform: translate(-20px, 90px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+  
+      @keyframes spotMovement3 {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(20px, -30px);
+        }
+        50% {
+          transform: translate(40px, -60px);
+        }
+        75% {
+          transform: translate(20px, -90px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+  
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -50;
+        overflow: hidden;
+        pointer-events: none;
+        backdrop-filter: blur(5rem);
+      }
+  
+      .spot {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(7.5rem);
+        opacity: 0.7;
+        z-index: -100;
+      }
+  
+      .spot1 {
+        width: 150px;
+        height: 150px;
+        background: rgba(247, 76, 0, 0.7);
+        top: 10%;
+        left: 20%;
+        animation: spotMovement1 12s infinite alternate ease-in-out;
+      }
+  
+      .spot2 {
+        width: 120px;
+        height: 120px;
+        background: rgba(244, 149, 0, 0.7);
+        top: 50%;
+        left: 70%;
+        animation: spotMovement2 15s infinite alternate ease-in-out;
+      }
+  
+      .spot3 {
+        width: 100px;
+        height: 100px;
+        background: rgba(49, 10, 101, 0.7);
+        top: 80%;
+        left: 40%;
+        animation: spotMovement3 18s infinite alternate linear;
+      }
+    </style>
+  </astro-fragment>
+  
